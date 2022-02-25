@@ -1,9 +1,13 @@
 import {useState} from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { useAppDispatch, useAppSelector} from "./app/counter-hooks";
+import { incremented } from "./features/counter/counter-slice";
+
 
 function App() {
-    const [count, setCount] = useState(0)
+    //The first thing we want to do is grab the current value of the counter, so we can display it.
+    const count = useAppSelector((state) => state.counter.value); //Takes a selector function
 
     return (
         <div className="App">
@@ -11,7 +15,7 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>Hello Vite + React!</p>
                 <p>
-                    <button type="button" onClick={() => setCount((count) => count + 1)}>
+                    <button type="button">
                         count is: {count}
                     </button>
                 </p>
