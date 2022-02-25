@@ -2,7 +2,7 @@ import {useState} from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { useAppDispatch, useAppSelector} from "./app/counter-hooks";
-import { incremented } from "./features/counter/counter-slice";
+import { incremented, amountAdded } from "./features/counter/counter-slice";
 
 
 function App() {
@@ -11,7 +11,8 @@ function App() {
     const dispatch = useAppDispatch()
 
     function handleClick(){
-        dispatch(incremented())
+        // dispatch(incremented())
+        dispatch(amountAdded(5))
     }
 
     return (
