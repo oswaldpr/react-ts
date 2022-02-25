@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector } from "../hooks";
 // createSlice main api function to define redux logic
 // PayloadAction represents the content of one defined object
 

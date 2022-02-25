@@ -1,6 +1,6 @@
 // A wrapper around the basics Redux Create Store Function. It automatically sets up a store with the right defaults.
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from '../features/counter/counter-slice';
+import counterReducer from './slices/counter-slice';
 
 //Steps
 // - Create store

@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { incremented, amountAdded, decremented, counterGetter } from "./features/counter/counter-slice";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { incremented, amountAdded, decremented, counterGetter } from "./store/slices/counter-slice";
 
 
 function App() {
