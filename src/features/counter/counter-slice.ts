@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { useAppSelector } from "../../app/hooks";
 // createSlice main api function to define redux logic
 // PayloadAction represents the content of one defined object
 
@@ -14,7 +15,7 @@ const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        // Logic and updates (like actions in vueStore)
+        // Logic and updates (actions)
         // So, that's the basics of writing slices. You define an initial state and a type,
         // you define the case reducers. For every action object that one of those reducers takes,
         // you use the payload action type to say, "here's what's inside the action.payload field."
@@ -31,5 +32,9 @@ const counterSlice = createSlice({
     }
 })
 
-export const { incremented, amountAdded } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { incremented, amountAdded, decremented } = counterSlice.actions;
+export default counterSlice.reducer; // For the store
+
+export function counterGetter(){
+    return useAppSelector((state) => state.counter)
+}
