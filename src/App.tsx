@@ -8,6 +8,11 @@ import { incremented } from "./features/counter/counter-slice";
 function App() {
     //The first thing we want to do is grab the current value of the counter, so we can display it.
     const count = useAppSelector((state) => state.counter.value); //Takes a selector function
+    const dispatch = useAppDispatch()
+
+    function handleClick(){
+        dispatch(incremented())
+    }
 
     return (
         <div className="App">
@@ -15,7 +20,7 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>Hello Vite + React!</p>
                 <p>
-                    <button type="button">
+                    <button type="button" onClick={handleClick}>
                         count is: {count}
                     </button>
                 </p>
