@@ -1,6 +1,7 @@
 // A wrapper around the basics Redux Create Store Function. It automatically sets up a store with the right defaults.
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from './slices/counter-slice';
+import { dogsApiSlice } from "./slices/dogs-api-slice";
 
 //Steps
 // - Create store
@@ -13,6 +14,10 @@ import counterReducer from './slices/counter-slice';
 export const store = configureStore({
     reducer: {
         counter:  counterReducer,
+        [dogsApiSlice.reducerPath]: dogsApiSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware ) => {
+        return getDefaultMiddleware().concat(dogsApiSlice.middleware);
     }
 });
 
